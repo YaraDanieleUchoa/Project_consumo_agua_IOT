@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: linear-gradient(to right top, #ffa8cf, #f49bd5, #e391de, #cb8ae8, #aa85f2, #8296fe, #53a4ff, #00afff, #00c8ff, #00ddf3, #52f0e2, #97ffd2);
+}
+
+#main_content{
+    width: 100%;
+    max-width: 700px;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+#div_apresentacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+#logo_apresentacao{
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    background-color: #f8f2ce;
+}
+#div_choice_bebedouro{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+#div_get_info_bebedouro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+}
+#div_refresh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}

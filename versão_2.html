@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+  
+    <title>App consumo de agua potavel</title>
+</head>
+<body>
+    <div id="main_content">
+
+        <div id="div_apresentacao">
+
+            <img src="./img/h2o (1).png" alt="icone de garrafa d'agua" id="logo_apresentacao">
+            <h1>H2O Monitor</h1>
+
+
+        </div>
+
+        <div id="div_choice_bebedouro">
+            <h2>Bebedouro: </h2><br>
+            <select id="bebedouro">
+                <option value="">Escolha o bebedouro</option>
+                <option value="bebedouro1">Bebedouro 1</option>
+                <option value="bebedouro2">Bebedouro 2</option>
+            </select>
+            <br><br>
+            <button id="GetInfo">Consultar</button>   
+        </div>
+
+        <div id="div_get_info_bebedouro">
+            <div id="div_info_bebedouro">
+                <h3>NOME DO BEBEDOURO </h3> <!-- FAZER UMA LOGICA PARA ESSE NOME MUDAR DE ACORDO COM O BEBEDOURO SELECIONADO -->
+                <br><br>
+                <label>Setor: </label>
+                <input type="text" id="setor" readonly>
+                <br><br>
+                <label>Capacidade (ml): </label>
+                <input type="number" id="capacidade" readonly>
+                <br><br>
+                <label>Volume atual(ml): </label>
+                <input type="number" id="volume" readonly>
+                <br><br><br>
+                <button id="reset">Resetar contagem</button>
+            </div>
+
+            <div id="div_animacao_bebedouro">
+
+                <!-- AQUI VAI A ANIMAÇÃO DO BEBEDOURO -->
+                <img src="./img/dispensador-de-agua.png" alt="icone de garrafa d'agua" height="200" width="200" >
+
+            </div>                
+
+        </div>
+        <div id="div_refresh">
+            <button id="refresh_garrafao">ESCOLHER OUTRO GARRAFÃO</button>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>Desenvolvido por: <a href="#">nome dos desenvolvedores</a></p>
+    </footer>
+</body>
+</html>

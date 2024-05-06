@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firebase</title>
+</head>
+<body>
+    <label>Bebedouro: </label>
+    <select id="bebedouro">
+        <option value="">Escolha o bebedouro</option>
+        <option value="bebedouro1">Bebedouro 1</option>
+        <option value="bebedouro2">Bebedouro 2</option>
+    </select>
+    
+
+    <button id="GetInfo">Consultar</button>
+    <br><br><br>
+
+    <div id="InfoBbd">
+        <label>Setor: </label>
+        <input type="text" id="setor" readonly>
+        <br><br>
+        <label>Local: </label>
+        <input type="text" id="local" readonly> 
+        <br><br>
+        <label>Capacidade (ml): </label>
+        <input type="number" id="capacidade" readonly>
+        <br><br>
+        <label>Volume atual(ml): </label>
+        <input type="number" id="volume" readonly>
+        <br><br>
+    </div>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+
+        const firebaseConfig = {
+          apiKey: "SuaChaveDeAPI",
+          authDomain: "testeiot-fb606.firebaseapp.com",
+          databaseURL: "https://testeiot-fb606-default-rtdb.firebaseio.com",
+          projectId: "testeiot-fb606",
+          storageBucket: "testeiot-fb606.appspot.com",
+          messagingSenderId: "1097006375740",
+          appId: "1:1097006375740:web:8841d30cb0a99d822b7439"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+
+        let bebedouro = document.getElementById('bebedouro');
+        let setor = document.getElementById('setor');
+        let local = document.getElementById('local');
+        let capacidade = document.getElementById('capacidade');
+        let volume = document.getElementById('volume');
+
+        let GetInfo = document.getElementById('GetInfo');
+
+        function RetData(){
+            const bebedouroSelecionado = bebedouro.value;
+            const dbRef = ref(db, `bebedouros/${bebedouroSelecionado}`);
+
+            get(child(dbRef, '/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    setor.value = snapshot.val().setor;
+                    local.value = snapshot.val().local;
+                    capacidade.value = snapshot.val().capacidade;
+                    volume.value = snapshot.val().volume;
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error("Error getting data:", error);
+            });
+        }
+        
+        GetInfo.addEventListener('click', RetData);
+    </script>
+</body>
+</html>
